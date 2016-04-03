@@ -1,0 +1,26 @@
+{
+    "name": "Ques",
+    "version": "0.0.1",
+    "description": "Ques",
+    "keywords": ["ques", "MVVM", "Q.js"],
+    "author": "fishineyuan <382184760@qq.com>",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/imweb/ques-browser"
+    },
+    "bugs": {
+        "url": "https://github.com/imweb/ques-browser/issues"
+    },
+    "homepage": "https://github.com/imweb/ques-browser",
+    "licenses": "MIT",
+    "lego": {
+        "category": "35",
+        "categoryName": "基础框架",
+        "main": "Ques.js",
+        "dependencies": {
+        },
+        "devDependencies": {
+            "expect.js": "0.3.1"
+        }
+    }
+}
