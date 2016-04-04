@@ -49,18 +49,20 @@
         },
 
         _initMod: function(el, name) {
-            el.removeAttribute('q-vm');
-            el.removeAttribute('q-async');
             var self = this;
-            if (self._map[name]) {
-                new Q(extend({el: el}, rawRequire(self._map[name])));
-            } else {
-                // 异步模块
-                rawRequire([name + '.main'], function() {
+            function init() {
+                if (el.getAttribute('q-async')) {
+                    // set async tpl
                     self._setAsyncTpl(el, rawRequire(name + '.tpl'));
-                    new Q(extend({el: el}, self._map[name]));
-                });
+                }
+                el.removeAttribute('q-vm');
+                el.removeAttribute('q-async');
+                new Q(extend({el: el}, rawRequire(self._map[name])));
             }
+
+            this._map[name]
+                ? init()
+                : rawRequire([name + '.main'], init);
         },
 
         _setAsyncTpl: function(el, tpl) {
